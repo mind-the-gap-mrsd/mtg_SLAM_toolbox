@@ -2,7 +2,7 @@
 <launch>
     <!-- Start online_async using provided launch file -->
     <node pkg="slam_toolbox" type="async_slam_toolbox_node" name="slam_toolbox" output="screen">
-        <rosparam command="load" file="$(find slam_toolbox)/config/robosar_online_async.yaml" />
+        <rosparam command="load" file="$(find slam_toolbox)/config/mtg_online_async.yaml" />
     </node>
     <!-- Launch RVIZ with provided configurations -->
     <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find slam_toolbox)/config/slam_toolbox_default.rviz" /> -->

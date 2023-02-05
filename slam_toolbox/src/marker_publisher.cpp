@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "talker");
   ros::NodeHandle nh;
-  ros::Subscriber msg_sub = nh.subscribe("/robosar_agent_bringup_node/agent_1/feedback/apriltag", 1000, msgCallback);
+  ros::Subscriber msg_sub = nh.subscribe("/mtg_agent_bringup_node/agent_1/feedback/apriltag", 1000, msgCallback);
   msg_pub = nh.advertise<visualization_msgs::Marker>("victim_markers", 1000);
   ros::spin();
   return 0;

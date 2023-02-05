@@ -36,16 +36,16 @@ SlamToolbox::SlamToolbox(ros::NodeHandle& nh)
   smapper_ = std::make_unique<mapper_utils::SMapper>();
   dataset_ = std::make_unique<karto::Dataset>();
 
-  status_client_ = nh_.serviceClient<robosar_messages::agent_status>("/robosar_agent_bringup_node/agent_status");
+  status_client_ = nh_.serviceClient<mtg_messages::agent_status>("/mtg_agent_bringup_node/agent_status");
   // fleet_info_ = getFleetStatusInfo();
   setParams(nh_);
   setROSInterfaces(nh_);
   setSolver(nh_);
 
   if(base_frames_.size() != laser_topics_.size())
-    ROS_FATAL("[RoboSAR:slam_toolbox_common:SlamToolbox] base_frames_.size() != laser_topics_.size()");
+    ROS_FATAL("[mtg:slam_toolbox_common:SlamToolbox] base_frames_.size() != laser_topics_.size()");
   if(base_frames_.size() != odom_frames_.size())
-    ROS_FATAL("[RoboSAR:slam_toolbox_common:SlamToolbox] base_frames_.size() != odom_frames_.size()");
+    ROS_FATAL("[mtg:slam_toolbox_common:SlamToolbox] base_frames_.size() != odom_frames_.size()");
   assert(base_frames_.size() == laser_topics_.size());
   assert(base_frames_.size() == odom_frames_.size());
 
@@ -159,10 +159,10 @@ void SlamToolbox::setParams(ros::NodeHandle& private_nh)
   {
     for (const auto& agent : fleet_info_)
     {
-      laser_topics_.push_back("/robosar_agent_bringup_node/" + agent + "/feedback/scan");
+      laser_topics_.push_back("/mtg_agent_bringup_node/" + agent + "/feedback/scan");
       base_frames_.push_back(agent + "/base_link");
       odom_frames_.push_back(agent + "/odom");
-      apriltag_topics_.push_back("/robosar_agent_bringup_node/" + agent + "/feedback/apriltag");
+      apriltag_topics_.push_back("/mtg_agent_bringup_node/" + agent + "/feedback/apriltag");
     }
   }
 
@@ -616,7 +616,7 @@ bool SlamToolbox::shouldProcessScan(
 
 std::set<std::string> SlamToolbox::getFleetStatusInfo()
 {
-  robosar_messages::agent_status srv;
+  mtg_messages::agent_status srv;
   if (status_client_.waitForExistence(ros::Duration(50)))
   {
     if (status_client_.call(srv))

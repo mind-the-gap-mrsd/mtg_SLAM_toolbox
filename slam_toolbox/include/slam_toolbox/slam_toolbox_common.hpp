@@ -37,7 +37,7 @@
 #include "slam_toolbox/get_pose_helper.hpp"
 #include "slam_toolbox/map_saver.hpp"
 #include "slam_toolbox/loop_closure_assistant.hpp"
-#include "robosar_messages/agent_status.h"
+#include "mtg_messages/agent_status.h"
 
 #include <string>
 #include <map>

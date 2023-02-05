@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!-- Localization for a single robot; to be called by mtg_multilocalization.launch -->
+<launch>
+    <arg name="agentN"/>
+    <!-- Run SLAM Toolbox -->
+    <node pkg="slam_toolbox" type="localization_slam_toolbox_node" name="slam_toolbox" output="screen" ns="localization/$(arg agentN)">
+        <rosparam command="load" file="$(find slam_toolbox)/config/mtg_multilocalization.yaml" />
+        <param name="odom_frame" type="string" value="$(arg agentN)/odom" />
+        <param name="base_frame" type="string" value="$(arg agentN)/base_link" />
+        <param name="scan_topic" type="string" value="/mtg_agent_bringup_node/$(arg agentN)/feedback/scan" />
+    </node>
+    <!-- Set maximum laser range -->
+    <param name="/localization/$(arg agentN)/slam_toolbox/max_laser_range" type="double" value="4.0" />
+</launch>

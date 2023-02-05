@@ -7,10 +7,10 @@
     
     <!--      Run localization with teleop      -->
     <!-- Agent bringup -->
-    <include file="$(find robosar_agent_bringup)/launch/robosar_agent_bringup_node.launch"/>
+    <include file="$(find mtg_agent_bringup)/launch/mtg_agent_bringup_node.launch"/>
     <!-- Run SLAM Toolbox -->
     <node pkg="slam_toolbox" type="localization_slam_toolbox_node" name="slam_toolbox" output="screen">
-        <rosparam command="load" file="$(find slam_toolbox)/config/robosar_localization.yaml" />
+        <rosparam command="load" file="$(find slam_toolbox)/config/mtg_localization.yaml" />
     </node>
     <!-- Set maximum laser range -->
     <param name="/slam_toolbox/max_laser_range" type="double" value="4.0" />
@@ -25,6 +25,6 @@
     </node>
     <!-- Teleoperation -->
     <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
-        <remap from="cmd_vel" to="/robosar_agent_bringup_launch/agent1/control"/>
+        <remap from="cmd_vel" to="/mtg_agent_bringup_launch/agent1/control"/>
     </node>
 </launch>

@@ -32,7 +32,7 @@ find_package(catkin REQUIRED
     map_server
     slam_toolbox_msgs
     apriltag_ros
-    robosar_messages
+    mtg_messages
 )
 
 ## Uncomment this if the package has a setup.py. This macro ensures
