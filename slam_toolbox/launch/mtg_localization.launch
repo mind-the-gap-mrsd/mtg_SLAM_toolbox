@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!-- Localization of a single robot; slam_toolbox only -->
 <launch>
-    <arg name="agentN" value="agent1" />
+    <arg name="agentN" value="agent_0" />
     <!-- Run SLAM Toolbox -->
     <node pkg="slam_toolbox" type="localization_slam_toolbox_node" name="slam_toolbox" output="screen">
         <rosparam command="load" file="$(find slam_toolbox)/config/mtg_localization.yaml" />
@@ -11,4 +11,5 @@
     </node>
     <!-- Set maximum laser range -->
     <param name="/slam_toolbox/max_laser_range" type="double" value="4.0" />
+    <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find slam_toolbox)/config/mtg_testing.rviz" /> -->
 </launch>

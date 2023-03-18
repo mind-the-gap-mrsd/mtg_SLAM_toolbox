@@ -839,6 +839,8 @@ void SlamToolbox::loadSerializedPoseGraph(
   smapper_->configure(nh_);
   dataset_.reset(dataset.release());
 
+  closure_assistant_->setMapper(smapper_->getMapper()); // ys
+
   if (!smapper_->getMapper())
   {
     ROS_FATAL("loadSerializedPoseGraph: Could not properly load "

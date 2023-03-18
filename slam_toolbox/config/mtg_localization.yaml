@@ -8,13 +8,14 @@ ceres_loss_function: None
 
 # ROS Parameters
 map_frame: map
-# odom_frame: agent1/odom
-# base_frame: agent1/base_link
-# scan_topic: /mtg_agent_bringup_launch/agent1/feedback/scan
+odom_frame: agent_0/odom
+base_frame: agent_0/base_link
+scan_topic: /mtg_agent_bringup_launch/agent_0/feedback/scan
 mode: localization
 
 # if you'd like to start localizing on bringup in a map and pose
-map_file_name: scott_hall
+map_file_name: initsetup
+# map_start_pose: [-3.533414, -4.331446, 0.000000]
 map_start_pose: [0,0,0]
 
 debug_logging: false

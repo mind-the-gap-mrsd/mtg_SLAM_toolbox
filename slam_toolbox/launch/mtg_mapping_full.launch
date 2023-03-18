@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!-- Launch file for creating a map using SLAM -->
 <launch>
-    <arg name="agentN" value="agent1" />
+    <arg name="agentN" value="agent_0" />
     <!-- Agent bringup -->
     <include file="$(find mtg_agent_bringup)/launch/mtg_agent_bringup_node.launch"/>
     <!-- Run SLAM Toolbox for mapping -->

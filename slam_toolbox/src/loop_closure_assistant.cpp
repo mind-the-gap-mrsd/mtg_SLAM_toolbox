@@ -53,6 +53,14 @@ LoopClosureAssistant::LoopClosureAssistant(
   node.param("enable_interactive_mode", enable_interactive_mode_, false);
 }
 
+// ys
+/*****************************************************************************/
+void LoopClosureAssistant::setMapper(karto::Mapper * mapper)
+/*****************************************************************************/
+{
+  mapper_ = mapper;
+}
+
 /*****************************************************************************/
 void LoopClosureAssistant::processInteractiveFeedback(const
   visualization_msgs::InteractiveMarkerFeedbackConstPtr& feedback)
